@@ -1,19 +1,11 @@
 import { employees } from './employees';
 import App from './App.svelte';
+import { alphabetize } from './modules/sort';
 
 const app = new App({
   target: document.body,
   props: {
-    employees: employees
-      .sort((a, b) => {
-        if (a < b) {
-          return -1;
-        }
-        if (a > b) {
-          return 1;
-        }
-        return 0;
-      })
+    employees: employees.sort(alphabetize)
   }
 });
 
