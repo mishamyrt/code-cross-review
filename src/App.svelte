@@ -18,6 +18,7 @@
   }
 
   $: hovered = hoversCount > 0;
+  $: pairs = buildPairs(employees, date)
 </script>
 
 <style>
@@ -47,7 +48,7 @@
     <Datepicker bind:date />?
   </h1>
   <div class={`pairs ${hovered ? '__hovered' : ''}`}>
-    {#each buildPairs(employees, date) as pair}
+    {#each pairs as pair}
       <Pair on:hover={handleHover} whom={pair[0]} who={pair[1]} />
     {/each}
   </div>
