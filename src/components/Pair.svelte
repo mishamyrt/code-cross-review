@@ -31,17 +31,17 @@
     }
 
     .pair-arrow {
-        opacity: 0;
+        color: var(--color-background);
         border-bottom: 3px solid;
         flex: 1;
         position: relative;
         margin: 24.5px 22px;
-        transition: opacity .3s ease-out;
+        transition: color .3s ease-out;
     }
 
     .pair:hover .pair-arrow {
-        opacity: 1;
-        transition: opacity 0s;
+        color: var(--color-text);
+        transition: color 0s;
     }
 
     .pair-arrowHead {
