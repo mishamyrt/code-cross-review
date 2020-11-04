@@ -1,6 +1,5 @@
 <script lang="ts">
     import { buildPairs } from "./modules/pairs";
-    import clsx from 'clsx'
     import Pair from './components/Pair.svelte';
     import Datepicker from './components/Datepicker.svelte';
 
@@ -44,9 +43,7 @@
 
 <main>
     <h1>На кого асайнить мержи <Datepicker bind:date />?</h1>
-    <div class="{clsx('pairs', {
-        __hovered: hovered
-    })}">
+    <div class="{`pairs ${hovered ? '__hovered' : ''}`}">
         {#each buildPairs(employees, date) as pair}
             <Pair on:hover={handleHover} whom={pair[0]} who={pair[1]} />
         {/each}
