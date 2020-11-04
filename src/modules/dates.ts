@@ -16,9 +16,14 @@ const months = [
     'декабря'
 ]
 
-export function formatDate (date: Date) {
+export function getToday (): Date {
     const today = new Date()
     today.setHours(0)
+    return today
+}
+
+export function formatDate (date: Date) {
+    const today = getToday()
     if (toDays(date.getTime()) === toDays(today.getTime())) {
         return 'сегодня'
     }

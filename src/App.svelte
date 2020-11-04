@@ -2,10 +2,10 @@
     import { buildPairs } from "./modules/pairs";
     import Pair from './components/Pair.svelte';
     import Datepicker from './components/Datepicker.svelte';
+    import { getToday } from "./modules/dates";
 
     export let employees: string[];
-    let date = new Date();
-    date.setHours(0)
+    let date = getToday()
 
     let hoversCount = 0
 
