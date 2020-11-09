@@ -2,10 +2,10 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w ",
-    "start": "sirv public",
-    "lint": "svelte-check"
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w ",
+    "start": "npx sirv public",
+    "lint": "npx svelte-check"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
