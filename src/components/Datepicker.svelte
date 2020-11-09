@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
   import { formatDate } from "../modules/dates";
   import Datepicker from "svelte-calendar";
 
@@ -7,7 +7,7 @@
   const endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 90);
 </script>
 
-<style>
+<style type="text/scss">
   button {
     cursor: pointer;
     font-size: 60px;
@@ -18,12 +18,12 @@
     padding: 0;
     transition: color 0.3s ease-out;
     color: var(--color-text);
-  }
 
-  button:hover {
-    transition: 0s;
-    color: var(--color-link-hover);
-    border-bottom-color: var(--color-link-hover-border);
+    &:hover {
+      transition: 0s;
+      color: var(--color-link-hover);
+      border-bottom-color: var(--color-link-hover-border);
+    }
   }
 
   span {

@@ -5,12 +5,13 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+require('autoprefixer')()
 
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
 	let server;
-	
+
 	function toExit() {
 		if (server) server.kill(0);
 	}
@@ -44,7 +45,12 @@ export default {
 			css: css => {
 				css.write('bundle.css');
 			},
-			preprocess: sveltePreprocess(),
+			preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: {
+          plugins: [require('autoprefixer')()]
+        }
+      }),
 		}),
 
 		// If you have external dependencies installed from

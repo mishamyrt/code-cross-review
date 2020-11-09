@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
   import { buildPairs } from "./modules/pairs";
   import Pair from "./components/Pair.svelte";
   import Datepicker from "./components/Datepicker.svelte";
@@ -21,7 +21,7 @@
   $: pairs = buildPairs(employees, date)
 </script>
 
-<style>
+<style type="text/scss">
   main {
     max-width: 870px;
     margin: 0 auto;
@@ -35,10 +35,10 @@
 
   .pairs {
     transition: color 0s ease-out;
-  }
 
-  .pairs.__hovered {
-    color: var(--color-text-silenced);
+    &.__hovered {
+      color: var(--color-text-silenced);
+    }
   }
 </style>
 
