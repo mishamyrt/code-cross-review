@@ -1,9 +1,9 @@
-import { toDays } from "./dates"
+import { msToDays } from "./dates"
 
-const initialDay = toDays(1603712237980)
+const initialDay = msToDays(1603712237980)
 
 const calculateShift = (date: Date, limit: number): number =>
-  ((toDays(date.getTime()) - initialDay) % (limit - 1)) + 1
+  ((msToDays(date.getTime()) - initialDay) % (limit - 1)) + 1
 
 export function buildPairs(employees: string[], date: Date): [string, string][] {
   const shift = calculateShift(date, employees.length)

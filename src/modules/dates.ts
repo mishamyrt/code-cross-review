@@ -1,4 +1,4 @@
-export const toDays = (time: number): number =>
+export const msToDays = (time: number): number =>
   Math.floor(time / 1000 / 60 / 60 / 24)
 
 const months = [
@@ -24,7 +24,7 @@ export function getToday(): Date {
 
 export function formatDate(date: Date) {
   const today = getToday()
-  if (toDays(date.getTime()) === toDays(today.getTime())) {
+  if (msToDays(date.getTime()) === msToDays(today.getTime())) {
     return 'сегодня'
   }
   return `${date.getDate()} ${months[date.getMonth()]}`
