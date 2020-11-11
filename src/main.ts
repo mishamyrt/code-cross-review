@@ -1,4 +1,4 @@
-import { employees } from './employees';
+import employees from '../.team-list.json';
 import App from './App.svelte';
 import { alphabetize } from './modules/sort';
 

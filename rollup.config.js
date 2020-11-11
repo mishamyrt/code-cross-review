@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import json from '@rollup/plugin-json';
 require('autoprefixer')()
 
 const production = !process.env.ROLLUP_WATCH;
@@ -66,7 +67,8 @@ export default {
 		typescript({
 			sourceMap: !production,
 			inlineSources: !production
-		}),
+    }),
+    json(),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
