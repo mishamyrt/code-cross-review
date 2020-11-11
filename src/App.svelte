@@ -49,6 +49,7 @@
 
   .pairs {
     transition: color 0s ease-out;
+    margin-left: -20px;
 
     &.__hovered {
       color: var(--color-text-silenced);
