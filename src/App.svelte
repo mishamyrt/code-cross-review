@@ -7,8 +7,10 @@
   export let employees: string[];
   let date = getToday();
 
-  let hoversCount = 0;
+  const pinKey = "pinned";
+  let pinned = localStorage.getItem(pinKey);
 
+  let hoversCount = 0;
   function handleHover(e: CustomEvent) {
     if (e.detail.state) {
       hoversCount++;
@@ -16,9 +18,21 @@
       hoversCount--;
     }
   }
-
   $: hovered = hoversCount > 0;
-  $: pairs = buildPairs(employees, date)
+
+  function handlePin(e: CustomEvent) {
+    if (e.detail.name === pinned) {
+      pinned = "";
+    } else {
+      pinned = e.detail.name;
+    }
+    localStorage.setItem(pinKey, pinned);
+  }
+
+  $: pairsData = buildPairs(employees, date);
+
+  type PairItem = [string, string, boolean];
+  $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem);
 </script>
 
 <style type="text/scss">
@@ -47,9 +61,14 @@
     На кого асайнить мержи
     <Datepicker bind:date />?
   </h1>
-  <div class={`pairs ${hovered ? '__hovered' : ''}`}>
+  <div class={`pairs ${hovered || pinned ? '__hovered' : ''}`}>
     {#each pairs as pair}
-      <Pair on:hover={handleHover} whom={pair[0]} who={pair[1]} />
+      <Pair
+        on:hover={handleHover}
+        on:pin={handlePin}
+        whom={pair[0]}
+        who={pair[1]}
+        pinned={pair[2]} />
     {/each}
   </div>
 </main>
