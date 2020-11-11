@@ -14,19 +14,25 @@
 <style type="text/scss">
   .pair {
     font-size: 36px;
+    line-height: 59px;
     font-weight: bold;
-    line-height: 164.3%;
     display: grid;
     grid-template-columns: 1fr 0.7fr;
-    transition: color 0.3s ease-out;
+    --arrow-color: var(--color-background);
+    transition: color .3s ease-out;
 
     &:hover {
       color: var(--color-text);
+      --arrow-color: var(--color-text);
       transition: color 0s;
 
       .pair-arrow {
-        color: var(--color-text);
-        transition: color 0s;
+        &::before {
+          transition: background-color 0s;
+        }
+        &::after {
+          transition: color 0s;
+        }
       }
     }
 
@@ -35,24 +41,37 @@
     }
 
     &-arrow {
-      color: var(--color-background);
-      border-bottom: 3px solid;
       flex: 1;
       position: relative;
-      margin: 24.5px 22px;
-      transition: color 0.3s ease-out;
-    }
+      height: 24px;
+      margin: 18px 22px;
+      top: 3px;
 
-    &-arrowHead {
-      display: block;
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-top: 3px solid;
-      border-right: 3px solid;
-      transform: rotate(45deg);
-      right: 0;
-      top: 0;
+      &::before {
+        transition: background-color .3s ease-out;
+        content: '';
+        display: block;
+        height: 3px;
+        width: calc(100% - 4px);
+        background-color: var(--arrow-color);
+        top: 10px;
+        position: absolute;
+      }
+
+      &::after {
+        transition: color .3s ease-out;
+        content: '';
+        display: block;
+        color: var(--arrow-color);
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-top: 3px solid;
+        border-right: 3px solid;
+        transform: rotate(45deg);
+        right: 4px;
+        top: 3px;
+      }
     }
   }
 </style>
@@ -60,7 +79,7 @@
 <div on:mouseenter={emitHover} on:mouseleave={emitLeave} class="pair">
   <div class="pair-whom">
     <span>{whom}</span>
-    <span class="pair-arrow"> <span class="pair-arrowHead" /> </span>
+    <span class="pair-arrow"></span>
   </div>
   <div>{who}</div>
 </div>
