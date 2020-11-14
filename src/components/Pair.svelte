@@ -91,7 +91,7 @@
 
     &.__pinned {
       .pair-pin {
-        fill: var(--color-text);
+        fill: var(--color-text-silenced);
       }
     }
   }
