@@ -5,7 +5,7 @@
     "sync": "node scripts/pull-team.js",
     "build": "npx rollup -c",
     "prebuild": "npm run sync",
-    "dev": "npx rollup -c -w ",
+    "dev": "npx rollup -c -w",
     "predev": "npm run sync",
     "start": "npx sirv public",
     "lint": "npx svelte-check"
