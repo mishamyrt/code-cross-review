@@ -13,7 +13,30 @@
   const emitPin = (name: string) => dispatch("pin", { name });
 </script>
 
-<style type="text/scss">
+<div
+  on:mouseenter={emitHover}
+  on:mouseleave={emitLeave}
+  class={`pair ${pinned ? "__pinned" : ""}`}
+>
+  <svg
+    class="pair-pin"
+    fill="none"
+    height="29"
+    viewBox="0 0 18 29"
+    width="13"
+    xmlns="http://www.w3.org/2000/svg"
+    ><path
+      d="m14.6549 14.2994v-10.97154h1.3715v-2.742899h-13.71452v2.742899h1.37145v10.97154l-2.7429 2.7429v2.7429h7.13153v8.2287h2.19434v-8.2287h7.1315v-2.7429zm-9.87442 2.7429 1.64574-1.6457v-12.06874h5.48578v12.06874l1.6457 1.6457z"
+    /></svg
+  >
+  <div class="pair-whom">
+    <span class="pair-whomName" on:click={() => emitPin(whom)}>{whom}</span>
+    <span class="pair-arrow" />
+  </div>
+  <div>{who}</div>
+</div>
+
+<style type="scss">
   .pair {
     font-size: 36px;
     line-height: 59px;
@@ -96,22 +119,3 @@
     }
   }
 </style>
-
-<div
-  on:mouseenter={emitHover}
-  on:mouseleave={emitLeave}
-  class={`pair ${pinned ? '__pinned' : ''}`}>
-  <svg
-    class="pair-pin"
-    fill="none"
-    height="29"
-    viewBox="0 0 18 29"
-    width="13"
-    xmlns="http://www.w3.org/2000/svg"><path
-      d="m14.6549 14.2994v-10.97154h1.3715v-2.742899h-13.71452v2.742899h1.37145v10.97154l-2.7429 2.7429v2.7429h7.13153v8.2287h2.19434v-8.2287h7.1315v-2.7429zm-9.87442 2.7429 1.64574-1.6457v-12.06874h5.48578v12.06874l1.6457 1.6457z" /></svg>
-  <div class="pair-whom">
-    <span class="pair-whomName" on:click={() => emitPin(whom)}>{whom}</span>
-    <span class="pair-arrow" />
-  </div>
-  <div>{who}</div>
-</div>

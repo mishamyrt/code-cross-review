@@ -22,7 +22,7 @@ export function getToday(): Date {
   return today
 }
 
-export function formatDate(date: Date) {
+export function formatDate(date: Date): string {
   const today = getToday()
   if (msToDays(date.getTime()) === msToDays(today.getTime())) {
     return 'сегодня'

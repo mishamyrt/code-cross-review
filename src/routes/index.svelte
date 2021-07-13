@@ -1,14 +1,19 @@
 <script type="ts">
-  import { buildPairs } from "./modules/pairs";
-  import Pair from "./components/Pair.svelte";
-  import Datepicker from "./components/Datepicker.svelte";
-  import { getToday } from "./modules/dates";
+  import { buildPairs } from "../modules/pairs";
+  import Pair from "../components/Pair.svelte";
+  import Datepicker from "../components/Datepicker.svelte";
+  import { getToday } from "../modules/dates";
+  import { onMount } from "svelte";
+  import team from "../../.team-list.json";
 
-  export let employees: string[];
+  export let employees: string[] = team;
   let date = getToday();
-
   const pinKey = "pinned";
-  let pinned = localStorage.getItem(pinKey);
+  let pinned
+
+  onMount(() => {
+    pinned = window.localStorage.getItem(pinKey);
+  });
 
   let hoversCount = 0;
   function handleHover(e: CustomEvent) {
@@ -35,7 +40,25 @@
   $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem);
 </script>
 
-<style type="text/scss">
+<main>
+  <h1>
+    На кого асайнить мержи
+    <Datepicker bind:date />?
+  </h1>
+  <div class={`pairs ${hovered || pinned ? "__hovered" : ""}`}>
+    {#each pairs as pair}
+      <Pair
+        on:hover={handleHover}
+        on:pin={handlePin}
+        whom={pair[0]}
+        who={pair[1]}
+        pinned={pair[2]}
+      />
+    {/each}
+  </div>
+</main>
+
+<style type="scss">
   main {
     max-width: 870px;
     margin: 0 auto;
@@ -57,20 +80,3 @@
     }
   }
 </style>
-
-<main>
-  <h1>
-    На кого асайнить мержи
-    <Datepicker bind:date />?
-  </h1>
-  <div class={`pairs ${hovered || pinned ? '__hovered' : ''}`}>
-    {#each pairs as pair}
-      <Pair
-        on:hover={handleHover}
-        on:pin={handlePin}
-        whom={pair[0]}
-        who={pair[1]}
-        pinned={pair[2]} />
-    {/each}
-  </div>
-</main>

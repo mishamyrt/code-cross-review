@@ -1,6 +1,6 @@
 //@ts-check
-const { get } = require('https')
-const { writeFile } = require('fs').promises
+import { get } from 'https'
+import { writeFile } from 'fs/promises'
 
 const pageUrl =
   'https://raw.githubusercontent.com' +

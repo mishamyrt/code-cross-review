@@ -1,4 +1,4 @@
-export function alphabetize (a: string, b: string) {
+export function alphabetize (a: string, b: string): number {
     if (a < b) {
       return -1;
     }

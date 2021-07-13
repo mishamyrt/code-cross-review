@@ -1,5 +1,5 @@
-/node_modules/
-/public/build/
-.team-list.json
-
 .DS_Store
+node_modules
+/.svelte-kit
+/package
+.team-list.json

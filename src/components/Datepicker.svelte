@@ -7,7 +7,13 @@
   const endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 90);
 </script>
 
-<style type="text/scss">
+<span>
+  <Datepicker bind:selected={date} start={startDate} end={endDate}>
+    <button> {formatDate(date)} </button>
+  </Datepicker>
+</span>
+
+<style type="scss">
   button {
     cursor: pointer;
     font-size: 60px;
@@ -30,9 +36,3 @@
     font-size: 14px;
   }
 </style>
-
-<span>
-  <Datepicker bind:selected={date} start={startDate} end={endDate}>
-    <button> {formatDate(date)} </button>
-  </Datepicker>
-</span>
