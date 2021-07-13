@@ -8,7 +8,8 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-    adapter: staticAdapter()
+    adapter: staticAdapter(),
+    paths: { base: "/cross-code-review" },
 	}
 };
 
