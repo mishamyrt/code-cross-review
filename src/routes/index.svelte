@@ -1,16 +1,16 @@
 <script type="ts">
-  import { buildPairs } from "../modules/pairs";
   import Pair from "../components/Pair.svelte";
   import Datepicker from "../components/Datepicker.svelte";
+  import { buildPairs } from "../modules/pairs";
   import { getToday } from "../modules/dates";
   import { onMount } from "svelte";
   import team from "../../.team-list.json";
 
-  export let employees: string[] = team;
-  let date = getToday();
+  const employees = team;
   const pinKey = "pinned";
-  let pinned
+  let date = getToday();
 
+  let pinned;
   onMount(() => {
     pinned = window.localStorage.getItem(pinKey);
   });
