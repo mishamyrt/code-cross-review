@@ -1,3 +1,5 @@
+const ts = require('typescript')
+
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
@@ -6,7 +8,7 @@ module.exports = {
 	ignorePatterns: ['*.cjs'],
 	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
 	settings: {
-		'svelte3/typescript': () => require('typescript')
+		'svelte3/typescript': ts
 	},
 	parserOptions: {
 		sourceType: 'module',
