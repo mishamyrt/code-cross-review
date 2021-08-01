@@ -1,10 +1,10 @@
 <script type="ts">
-  import { formatDate } from "../modules/dates";
-  import Datepicker from "svelte-calendar";
+  import { formatDate } from '../modules/dates'
+  import Datepicker from 'svelte-calendar'
 
-  export let date = new Date();
-  const startDate = new Date();
-  const endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 90);
+  export let date = new Date()
+  const startDate = new Date()
+  const endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 90)
 </script>
 
 <span>

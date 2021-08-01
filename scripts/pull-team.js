@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-check
 import { get } from 'https'
 import { writeFile } from 'fs/promises'
 
@@ -15,11 +15,11 @@ const filePath = '.team-list.json'
  */
 const getPage = url =>
   new Promise((resolve, reject) => {
-    let data = '';
+    let data = ''
     get(url, resp => {
-      resp.on('data', chunk => { data += chunk });
-      resp.on('end', () => resolve(data));
-    }).on('error', err => reject(err.message));
+      resp.on('data', chunk => { data += chunk })
+      resp.on('end', () => resolve(data))
+    }).on('error', err => reject(err.message))
   })
 
 /**

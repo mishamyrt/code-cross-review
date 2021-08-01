@@ -1,29 +1,24 @@
 <script type="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from 'svelte'
 
-  export let whom: string;
-  export let who: string;
-  export let pinned = false;
+  export let whom: string
+  export let who: string
+  export let pinned = false
 
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher()
 
-  const dispatchHover = (state: boolean) => dispatch("hover", { state });
-  const emitHover = () => dispatchHover(true);
-  const emitLeave = () => dispatchHover(false);
-  const emitPin = (name: string) => dispatch("pin", { name });
+  const dispatchHover = (state: boolean) => dispatch('hover', { state })
+  const emitHover = () => dispatchHover(true)
+  const emitLeave = () => dispatchHover(false)
+  const emitPin = (name: string) => dispatch('pin', { name })
 </script>
 
 <div
   on:mouseenter={emitHover}
   on:mouseleave={emitLeave}
-  class={`pair ${pinned ? "__pinned" : ""}`}
+  class={`pair ${pinned ? '__pinned' : ''}`}
 >
-  <svg
-    class="pair-pin"
-    fill="none"
-    height="29"
-    viewBox="0 0 18 29"
-    width="13"
+  <svg class="pair-pin" fill="none" height="29" viewBox="0 0 18 29" width="13"
     ><path
       d="m14.6549 14.2994v-10.97154h1.3715v-2.742899h-13.71452v2.742899h1.37145v10.97154l-2.7429 2.7429v2.7429h7.13153v8.2287h2.19434v-8.2287h7.1315v-2.7429zm-9.87442 2.7429 1.64574-1.6457v-12.06874h5.48578v12.06874l1.6457 1.6457z"
     /></svg
@@ -78,7 +73,7 @@
 
       &::before {
         transition: background-color 0.3s ease-out;
-        content: "";
+        content: '';
         display: block;
         height: 3px;
         width: calc(100% - 4px);
@@ -89,7 +84,7 @@
 
       &::after {
         transition: color 0.3s ease-out;
-        content: "";
+        content: '';
         display: block;
         color: var(--arrow-color);
         position: absolute;

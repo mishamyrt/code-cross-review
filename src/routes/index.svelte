@@ -1,43 +1,47 @@
 <script type="ts">
-  import Pair from "../components/Pair.svelte";
-  import Datepicker from "../components/Datepicker.svelte";
-  import { buildPairs } from "../modules/pairs";
-  import { getToday } from "../modules/dates";
-  import { onMount } from "svelte";
-  import team from "../../.team-list.json";
+  import Pair from '../components/Pair.svelte'
+  import Datepicker from '../components/Datepicker.svelte'
+  import { buildPairs } from '../modules/pairs'
+  import { getToday } from '../modules/dates'
+  import { onMount } from 'svelte'
+  import team from '../../.team-list.json'
 
-  const employees = team;
-  const pinKey = "pinned";
-  let date = getToday();
+  let hovered
+  let pairsData
+  let pairs
 
-  let pinned;
+  const employees = team
+  const pinKey = 'pinned'
+  let date = getToday()
+
+  let pinned
   onMount(() => {
-    pinned = window.localStorage.getItem(pinKey);
-  });
+    pinned = window.localStorage.getItem(pinKey)
+  })
 
-  let hoversCount = 0;
+  let hoversCount = 0
   function handleHover(e: CustomEvent) {
     if (e.detail.state) {
-      hoversCount++;
+      hoversCount++
     } else {
-      hoversCount--;
+      hoversCount--
     }
   }
-  $: hovered = hoversCount > 0;
+  $: hovered = hoversCount > 0
 
   function handlePin(e: CustomEvent) {
     if (e.detail.name === pinned) {
-      pinned = "";
+      pinned = ''
     } else {
-      pinned = e.detail.name;
+      pinned = e.detail.name
     }
-    localStorage.setItem(pinKey, pinned);
+    localStorage.setItem(pinKey, pinned)
   }
 
-  $: pairsData = buildPairs(employees, date);
+  $: pairsData = buildPairs(employees, date)
 
-  type PairItem = [string, string, boolean];
-  $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem);
+  type PairItem = [string, string, boolean]
+  $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem)
 </script>
 
 <main>
@@ -45,7 +49,7 @@
     На кого асайнить мержи
     <Datepicker bind:date />?
   </h1>
-  <div class={`pairs ${hovered || pinned ? "__hovered" : ""}`}>
+  <div class={`pairs ${hovered || pinned ? '__hovered' : ''}`}>
     {#each pairs as pair}
       <Pair
         on:hover={handleHover}

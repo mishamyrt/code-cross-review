@@ -1,4 +1,4 @@
-import { msToDays } from "./dates"
+import { msToDays } from './dates'
 
 const initialDay = msToDays(1603712237980)
 
