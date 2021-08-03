@@ -6,15 +6,15 @@
   import { onMount } from 'svelte'
   import team from '../../.team-list.json'
 
-  let hovered
-  let pairsData
-  let pairs
+  let hovered: boolean
+  let pairsData: [string, string][]
+  let pairs: PairItem[]
 
   const employees = team
   const pinKey = 'pinned'
   let date = getToday()
 
-  let pinned
+  let pinned: string
   onMount(() => {
     pinned = window.localStorage.getItem(pinKey)
   })
