@@ -4,7 +4,7 @@ import { writeFile } from 'fs/promises'
 
 const pageUrl =
   'https://raw.githubusercontent.com' +
-  '/wiki/mishamyrt/cross-code-review/Team.md'
+  '/wiki/mishamyrt/code-cross-review/Team.md'
 
 const vacationKeyword = '(on vacation)'
 const filePath = '.team-list.json'

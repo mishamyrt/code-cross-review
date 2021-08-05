@@ -10,8 +10,8 @@ const config = {
   kit: {
     adapter: staticAdapter(),
     paths: {
-      base: '/cross-code-review',
-      assets: '/cross-code-review'
+      base: '/code-cross-review',
+      assets: '/code-cross-review'
     }
   }
 }
