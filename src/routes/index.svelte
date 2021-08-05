@@ -1,10 +1,11 @@
 <script type="ts">
   import Pair from '../components/Pair.svelte'
   import Datepicker from '../components/Datepicker.svelte'
-  import { buildPairs } from '../modules/pairs'
+  import { buildPairs } from '../modules/pairs/pairs'
   import { getToday } from '../modules/dates'
   import { onMount } from 'svelte'
   import team from '../../.team-list.json'
+  import type { PairItem } from 'src/modules/pairs'
 
   let hovered: boolean
   let pairsData: [string, string][]
@@ -39,8 +40,6 @@
   }
 
   $: pairsData = buildPairs(employees, date)
-
-  type PairItem = [string, string, boolean]
   $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem)
 </script>
 
