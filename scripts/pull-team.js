@@ -12,13 +12,14 @@ const filePath = '.team-list.json'
 /**
  * Grabs page from https
  * @param {string} url
+ * @returns {Promise<string>}
  */
 const getPage = url =>
   new Promise((resolve, reject) => {
     let data = ''
-    get(url, resp => {
-      resp.on('data', chunk => { data += chunk })
-      resp.on('end', () => resolve(data))
+    get(url, response => {
+      response.on('data', chunk => { data += chunk })
+      response.on('end', () => resolve(data))
     }).on('error', err => reject(err.message))
   })
 
@@ -34,11 +35,11 @@ const parseLine = line =>
 
 /**
  * Parses markdown list
- * @param {string} mdList
+ * @param {string} list
  * @returns {string[]}
  */
-const parseList = mdList =>
-  mdList
+const parseList = list =>
+  list
     .split('\n')
     .filter(line => !line.includes(vacationKeyword))
     .map(parseLine)
