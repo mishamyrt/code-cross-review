@@ -2,7 +2,8 @@
   "name": "cross-code-review",
   "version": "0.0.1",
   "scripts": {
-    "start": "svelte-kit dev",
+    "start": "npm run dev",
+    "dev": "svelte-kit dev",
     "predev": "npm run sync",
     "build": "svelte-kit build",
     "prebuild": "npm run sync",
