@@ -38,3 +38,7 @@ npm start -- --open
 ```bash
 npm run build
 ```
+
+## License
+
+[MIT](./LICENSE).
