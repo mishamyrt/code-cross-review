@@ -23,6 +23,16 @@ const getPage = url =>
   })
 
 /**
+ * Parses markdown list item
+ * @param {string} line
+ * @returns {string}
+ */
+const parseLine = line =>
+  line
+    .split('*')[1]
+    .trim()
+
+/**
  * Parses markdown list
  * @param {string} mdList
  * @returns {string[]}
@@ -31,10 +41,7 @@ const parseList = mdList =>
   mdList
     .split('\n')
     .filter(line => !line.includes(vacationKeyword))
-    .map(line => line
-      .split('*')[1]
-      .trim()
-      .replace(vacationKeyword, ''))
+    .map(parseLine)
 
 getPage(pageUrl)
   .then(parseList)
