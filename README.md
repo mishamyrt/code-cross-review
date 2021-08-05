@@ -1,6 +1,6 @@
 # Code cross-review
 
-[![Quality assurance](./actions/workflows/qa.yaml/badge.svg)](./actions/workflows/qa.yaml) [![Deploy](./actions/workflows/deploy.yaml/badge.svg)](./actions/workflows/deploy.yaml)
+[![Quality assurance](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml) [![Deploy](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml)
 
 The application is automated with GitHub Actions, so it's easy to deploy a copy for the team.
 
@@ -20,7 +20,11 @@ https://<your_username>.github.io/code-cross-review/
 
 ### 2. Customize team list
 
-Go to the [team list page](./wiki/Team), click "Edit" and change the names to yours. One name per line, adhering to markdown syntax.
+1. Click "Wiki" at the top of your repository on GitHub.
+2. Click "Team" in the sidebar.
+3. Click "Edit" at the top.
+
+One name per line, adhering to markdown syntax.
 
 ## Developing
 
