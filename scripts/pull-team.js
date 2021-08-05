@@ -2,12 +2,14 @@
 import { get } from 'https'
 import { writeFile } from 'fs/promises'
 
-const pageUrl =
-  'https://raw.githubusercontent.com' +
-  '/wiki/mishamyrt/code-cross-review/Team.md'
+const USERNAME = 'mishamyrt'
 
-const vacationKeyword = '(on vacation)'
-const filePath = '.team-list.json'
+// Internal
+const PAGE_URL =
+  'https://raw.githubusercontent.com' +
+  `/wiki/${USERNAME}/code-cross-review/Team.md`
+const VACATION_KEYWORD = '(on vacation)'
+const RESULT_PATH = '.team-list.json'
 
 /**
  * Grabs page from https
@@ -41,10 +43,10 @@ const parseLine = line =>
 const parseList = list =>
   list
     .split('\n')
-    .filter(line => !line.includes(vacationKeyword))
+    .filter(line => !line.includes(VACATION_KEYWORD))
     .map(parseLine)
 
-getPage(pageUrl)
+getPage(PAGE_URL)
   .then(parseList)
   .then(JSON.stringify)
-  .then(d => writeFile(filePath, d))
+  .then(d => writeFile(RESULT_PATH, d))
