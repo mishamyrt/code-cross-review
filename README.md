@@ -6,7 +6,7 @@ The application is automated with GitHub Actions, so it's easy to deploy a copy 
 
 ## How to make one for yourself?
 
-Create a copy and publish it in two steps. After them, the page will be available at the link
+Create a copy and publish it in three steps. After them, the page will be available at the link
 
 ### 1. Fork
 
@@ -25,6 +25,10 @@ https://<your_username>.github.io/code-cross-review/
 3. Click "Edit" at the top.
 
 One name per line, adhering to markdown syntax.
+
+### 3. Personalize
+
+Open the [pull-team](./scripts/pull-team.js#L5) script in your code editor and change the username.
 
 ## Developing
 
