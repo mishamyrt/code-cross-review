@@ -18,17 +18,17 @@ Already after this step you can see the list at the URL:
 https://<your_username>.github.io/code-cross-review/
 ```
 
-### 2. Customize team list
+### 2. Personalize
+
+Open the [pull-team](./scripts/pull-team.js#L5) script in your code editor and change the username to your GitHub username.
+
+### 3. Customize team list
 
 1. Click "Wiki" at the top of your repository on GitHub.
 2. Click "Team" in the sidebar.
 3. Click "Edit" at the top.
 
 One name per line, adhering to markdown syntax.
-
-### 3. Personalize
-
-Open the [pull-team](./scripts/pull-team.js#L5) script in your code editor and change the username.
 
 ## Developing
 
