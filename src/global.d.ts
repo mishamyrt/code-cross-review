@@ -1,7 +1,7 @@
 /* eslint-disable */
 interface DatepickerProps extends import('svelte').JSX.HTMLAttributes {
   start: Date,
-  end: Date
+  end?: Date
   selected: Date
 }
 

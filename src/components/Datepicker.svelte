@@ -4,11 +4,10 @@
 
   export let date = new Date()
   const startDate = new Date()
-  const endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 90)
 </script>
 
 <span>
-  <Datepicker bind:selected={date} start={startDate} end={endDate}>
+  <Datepicker bind:selected={date} start={startDate}>
     <button> {formatDate(date)} </button>
   </Datepicker>
 </span>
