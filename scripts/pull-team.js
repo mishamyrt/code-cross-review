@@ -2,6 +2,9 @@
 import { get } from 'https'
 import { writeFile } from 'fs/promises'
 
+/**
+ * GitHub username for wiki link
+ */
 const USERNAME = 'mishamyrt'
 
 // Internal
