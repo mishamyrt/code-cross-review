@@ -1,5 +1,9 @@
 # Code cross-review
 
+<img align="right" width="128" height="128"
+     alt="Logo"
+     src="./static/icon-192.png">
+
 [![Quality assurance](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml) [![Deploy](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml)
 
 The application is automated with GitHub Actions, so it's easy to deploy a copy for the team.
