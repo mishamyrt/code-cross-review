@@ -24,6 +24,12 @@ export const msToDays = (time: number): number =>
   Math.floor(time / 1000 / 60 / 60 / 24)
 
 /**
+ * Returns days count from the beginning
+ * @param date - Target date
+ */
+export const getDays = (date: Date): number => msToDays(date.getTime())
+
+/**
  * Returns current day object
  */
 export function getToday(): Date {

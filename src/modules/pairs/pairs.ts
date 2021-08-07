@@ -1,15 +1,20 @@
-import { msToDays } from '../dates'
+import type { Pair } from '.'
+import { getDays, msToDays } from '../dates'
 
-const initialDay = msToDays(1603712237980)
+/**
+ * Some fixed date for offset
+ */
+const INITIAL_DAY = msToDays(1603712237980)
 
 const calculateShift = (date: Date, limit: number): number =>
-  ((msToDays(date.getTime()) - initialDay) % (limit - 1)) + 1
+  ((getDays(date) - INITIAL_DAY) % (limit - 1)) + 1
 
-export function buildPairs(employees: string[], date: Date): [string, string][] {
+export function buildPairs(employees: string[], date: Date): Pair[] {
   const shift = calculateShift(date, employees.length)
   const pairs = []
+  let offset
   for (let i = 0; i < employees.length; i++) {
-    let offset = shift + i
+    offset = shift + i
     if (offset >= employees.length) {
       offset -= employees.length
     }
