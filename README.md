@@ -24,7 +24,7 @@ https://<your_username>.github.io/code-cross-review/
 
 ### 2. Personalize
 
-Open the [pull-team](./scripts/pull-team.js#L5) script in your code editor and change the username to your GitHub username.
+Open the [pull-team](./scripts/pull-team.js#L8) script in your code editor and change the username to your GitHub username.
 
 ### 3. Customize team list
 
