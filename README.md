@@ -2,7 +2,7 @@
 
 <img align="right" width="128" height="128"
      alt="Logo"
-     src="./static/icon-192.png">
+     src="./static/icon-512.png">
 
 [![Quality assurance](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/qa.yaml) [![Deploy](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml/badge.svg)](https://github.com/mishamyrt/code-cross-review/actions/workflows/deploy.yaml)
 
