@@ -37,7 +37,7 @@
     line-height: 59px;
     font-weight: bold;
     display: grid;
-    grid-template-columns: 19px 1fr 0.76fr;
+    grid-template-columns: 19px 1fr 0.9fr;
     transition: color 0.3s ease-out;
 
     &:hover,
