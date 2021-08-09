@@ -63,7 +63,7 @@
 
 <style type="scss">
   main {
-    max-width: 870px;
+    max-width: 920px;
     margin: 0 auto;
   }
 
