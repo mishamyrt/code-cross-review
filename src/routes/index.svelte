@@ -5,6 +5,7 @@
   import { getToday } from '../modules/dates'
   import { onMount } from 'svelte'
   import team from '../../.team-list.json'
+  import { alphabetize } from '../modules/sort'
   import type { PairItem } from 'src/modules/pairs'
 
   let hovered: boolean
@@ -39,7 +40,7 @@
     localStorage.setItem(pinKey, pinned)
   }
 
-  $: pairsData = buildPairs(employees, date)
+  $: pairsData = buildPairs(employees.sort(alphabetize), date)
   $: pairs = pairsData.map((v) => [...v, pinned === v[0]] as PairItem)
 </script>
 
