@@ -12,7 +12,7 @@
   let pairsData: [string, string][]
   let pairs: PairItem[]
 
-  const employees = team
+  const employees = team.map(s => s[0])
   const pinKey = 'pinned'
   let date = getToday()
 
@@ -54,6 +54,7 @@
       <Pair
         on:hover={handleHover}
         on:pin={handlePin}
+        whoBirthday={''}
         whom={pair[0]}
         who={pair[1]}
         pinned={pair[2]}

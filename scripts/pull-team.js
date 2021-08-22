@@ -1,6 +1,7 @@
 // @ts-check
 import { get } from 'https'
 import { writeFile } from 'fs/promises'
+import { formatDayToISO } from './modules/date.js'
 
 /**
  * GitHub username for wiki link
@@ -31,17 +32,25 @@ const getPage = url =>
 /**
  * Parses markdown list item
  * @param {string} line
- * @returns {string}
+ * @returns {[string, string]}
  */
-const parseLine = line =>
-  line
+const parseLine = line => {
+  const parts = line
     .split('*')[1]
-    .trim()
+    .split('-')
+    .map(s => s.trim())
+  if (parts.length === 2) {
+    parts[1] = formatDayToISO(parts[1])
+  }
+  return [parts[0], parts[1]]
+}
+
+
 
 /**
  * Parses markdown list
  * @param {string} list
- * @returns {string[]}
+ * @returns {string[][]}
  */
 const parseList = list =>
   list
