@@ -45,8 +45,6 @@ const parseLine = line => {
   return [parts[0], parts[1]]
 }
 
-
-
 /**
  * Parses markdown list
  * @param {string} list
