@@ -54,7 +54,6 @@
       <Pair
         on:hover={handleHover}
         on:pin={handlePin}
-        whoBirthday={''}
         whom={pair[0]}
         who={pair[1]}
         pinned={pair[2]}

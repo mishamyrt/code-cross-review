@@ -3,7 +3,7 @@
 
   export let whom: string
   export let who: string
-  export let whoBirthday = ''
+ // export let whoBirthday = ''
   export let pinned = false
 
   const dispatch = createEventDispatcher()
