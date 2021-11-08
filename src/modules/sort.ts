@@ -1,5 +1,5 @@
 /**
- * Comparerer function for alphabetical sorting
+ * Comparerer function for alphabetical sorting.
  */
 export function alphabetize(a: string, b: string): number {
   if (a < b) {
