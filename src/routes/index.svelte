@@ -8,6 +8,8 @@
   import { alphabetize } from '../modules/sort'
   import type { PairItem } from 'src/modules/pairs'
 
+  export const prerender = true
+
   let hovered: boolean
   let pairsData: [string, string][]
   let pairs: PairItem[]

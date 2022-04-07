@@ -8,10 +8,10 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: staticAdapter(),
-    paths: {
-      base: '/code-cross-review'
-    }
+    prerender: {
+      default: true
+    },
+    adapter: staticAdapter()
   }
 }
 
