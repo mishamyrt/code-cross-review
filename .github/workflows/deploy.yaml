@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Build check
+    - name: Build
       run: npm run build
 
     - name: Deploy
@@ -25,3 +25,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
+        cname: review.myrt.co
