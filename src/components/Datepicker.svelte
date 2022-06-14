@@ -3,7 +3,7 @@
   import Datepicker from 'svelte-calendar'
 
   export let date = new Date()
-  const startDate = new Date()
+  const startDate: Readonly<Date> = new Date()
 </script>
 
 <span>
