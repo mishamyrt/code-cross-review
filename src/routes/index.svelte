@@ -8,6 +8,8 @@
   import { alphabetize } from '../modules/sort'
   import type { PairItem } from 'src/modules/pairs'
 
+  const PIN_KEY = 'pinned'
+
   export const prerender = true
 
   let hovered: boolean
@@ -15,12 +17,11 @@
   let pairs: PairItem[]
 
   const employees = team.map(s => s[0])
-  const pinKey = 'pinned'
   let date = getToday()
 
   let pinned: string
   onMount(() => {
-    pinned = window.localStorage.getItem(pinKey)
+    pinned = window.localStorage.getItem(PIN_KEY)
   })
 
   let hoversCount = 0
@@ -39,7 +40,7 @@
     } else {
       pinned = e.detail.name
     }
-    localStorage.setItem(pinKey, pinned)
+    localStorage.setItem(PIN_KEY, pinned)
   }
 
   $: pairsData = buildPairs(employees.sort(alphabetize), date)
