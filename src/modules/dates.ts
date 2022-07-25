@@ -20,14 +20,17 @@ const MONTHS_NAMES = [
  * Converts JS timestamp to days
  * @param time - timestamp in milliseconds
  */
-export const msToDays = (time: number): number =>
-  Math.floor(time / 1000 / 60 / 60 / 24)
+export function msToDays(time: number): number {
+  return Math.floor(time / 1000 / 60 / 60 / 24)
+}
 
 /**
  * Returns days count from the beginning
  * @param date - Target date
  */
-export const getDays = (date: Date): number => msToDays(date.getTime())
+export function getDays(date: Date): number {
+  return msToDays(date.getTime())
+}
 
 /**
  * Returns current day object
