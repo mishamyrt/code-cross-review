@@ -20,14 +20,15 @@ const RESULT_PATH = '.team-list.json'
  * @param {string} url
  * @returns {Promise<string>}
  */
-const getPage = url =>
-  new Promise((resolve, reject) => {
+function getPage (url) {
+  return new Promise((resolve, reject) => {
     let data = ''
     get(url, response => {
       response.on('data', chunk => { data += chunk })
       response.on('end', () => resolve(data))
     }).on('error', err => reject(err.message))
   })
+}
 
 /**
  * Parses markdown list item
