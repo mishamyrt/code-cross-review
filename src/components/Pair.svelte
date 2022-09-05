@@ -11,7 +11,10 @@
     dispatch('pin', { name: whom })
   }
 
-  const dispatchHover = (state: boolean) => dispatch('hover', { state })
+  function dispatchHover(state: boolean) {
+    dispatch('hover', { state })
+  }
+
   const dispatchEnter = () => dispatchHover(true)
   const dispatchLeave = () => dispatchHover(false)
 </script>
